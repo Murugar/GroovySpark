@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+
+group = 'com.iqmsoft'
+version = '1.0'
+
+description = "Simple Groovy Spark Project"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+configurations {
+    provided
+}
+
+dependencies {
+    provided 'org.apache.spark:spark-core_2.11:2.0.2'
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+}
+
+sourceSets.main.compileClasspath += configurations.provided
+sourceSets.main.groovy.srcDirs = ['src/main/groovy']
+
+
+
+
+
