@@ -1,1 +1,1 @@
-This is a test
+Groovy Spark 2.0
